@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="./css/bootstrap.min.css">
+    <link rel="stylesheet" href="./css/all.min.css">
+    <link rel="stylesheet" href="./css/style.css">
+    <title>BookMark</title>
+</head>
+
+<body class="vh-100">
+
+    <header class="d-flex justify-content-center py-5">
+        <h1 class="d-inline-block position-relative">BookMarker</h1>
+    </header>
+
+
+    <main class="d-flex flex-column justify-content-center align-items-center container">
+        <h2><i class="fa-solid fa-bookmark me-2"></i>
+            <p>Bookmark your favorite sites</p><i class="fa-solid fa-bookmark ms-2"></i>
+        </h2>
+        <div class="form-section container">
+            <label class="my-2" for="sitename"><i class="fa-solid fa-sitemap me-2"></i>Site Name</label>
+            <div class="position-relative"><input type="text" required name="sitename" id="sitename"
+                    class="form-control" onkeyup="input_valdation()" placeholder="BookMark Name">
+                <div class="invalid-tooltip">
+                    Please choose a not_repeated and valid Bookmark.
+                </div>
+                <div class="valid-tooltip">
+                    Good job ^^
+                </div>
+
+            </div>
+
+            <label class="my-2" for="siteurl"><i class="fa-regular fa-address-book me-2"></i>Site URL</label>
+            <div class="position-relative">
+                <input type="text" name="siteurl" id="siteurl" class="form-control" onkeyup="input_valdationu()"
+                    placeholder="WebSite URL">
+                <div class="invalid-tooltip">
+                    Please choose valid URL.
+                </div>
+                <div class="valid-tooltip">
+                    Good job ^^
+                </div>
+            </div>
+            <button class="submit d-block mx-auto" onclick="get_site()" data-bs-toggle="modal"
+                data-bs-target="#exampleModal">Submit</button>
+        </div>
+        <!-- data-bs-toggle="modal" data-bs-target="#exampleModal" -->
+    </main>
+    <section class="book-marks py-4">
+        <div class="container px-4">
+            <div class="row text-bg-secondary py-1 fs-">
+                <div class="col-3">
+                    <h6>Index</h6>
+                </div>
+                <div class="col-3 h6-0">
+                    <h6>Name</h6>
+                </div>
+                <div class="col-3">
+                    <h6>Visit</h6>
+                </div>
+                <div class="col-3">
+                    <h6>Delete</h6>
+                </div>
+
+            </div>
+            <div class="section" id="table-data">
+
+            </div>
+        </div>
+    </section>
+
+    <!--  -->
+    <!-- Button trigger modal -->
+
+
+    <!-- Modal -->
+    <div class="d-changer">
+        <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+            <div class="modal-dialog">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h2 class="modal-title fs-5" id="exampleModalLabel">- invalid-Data</h2>
+                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                    </div>
+                    <div class="modal-body">
+                        <h4 class="mb-3">Site Name or Url is not valid, Please follow the rules below :</h4
+                            class="mb-2">
+                        <p>-> Site name must contain at least 4 characters</p>
+                        <p>-> Site URL must be a valid one</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!--  -->
+
+
+
+
+
+
+
+    <script src="./js/bootstrap.bundle.min.js"></script>
+    <script src="./js/main.js"></script>
+</body>
+
+</html>
