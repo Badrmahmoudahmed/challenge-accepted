@@ -40,8 +40,8 @@ function diplay() {
     for (var i = 0; i < allSites.length; i++) {
         container += `<div class="row py-2 align-items-baseline">
         <div class="col-3 p-0">
-            <p class = "editor_need">${allSites[i].name}</p>
-            <input type = "text" class = "form-control edit d-none">
+            <p class = "editor_need${i}">${allSites[i].name}</p>
+            <input type = "text" class = "form-control edit${i} d-none">
         </div>
         <div class="col-3">
             <a target ="_blank" href="${allSites[i].site_url}" class="btn btn-outline-success">Visit</a>
@@ -50,7 +50,7 @@ function diplay() {
             <button class="btn btn-outline-danger" onclick ="deleteElement(${i})">Delete</button>
         </div>
         <div class="col-3">
-            <button class="btn btn-outline-warning" onclick = "formPrepar(${i})">Update</button>
+            <button class="btn btn-outline-warning test${i}" onclick = "formPrepar(${i})">Update</button>
         </div>
     </div>`
     }
@@ -105,11 +105,11 @@ function clear() {
 }
 
 function formPrepar(ele) {
-    var update_btn = document.querySelector(".btn-outline-warning");
+    var update_btn = document.querySelector(`.test${ele}`);
     if (update_btn.innerHTML == "Update") {
-        document.querySelector(".edit").classList.replace("d-none", "d-block");
-        document.querySelector(".editor_need").classList.add("d-none");
-        document.querySelector(".btn-outline-warning").innerHTML = "Confirm";
+        document.querySelector(`.edit${ele}`).classList.replace("d-none", "d-block");
+        document.querySelector(`.editor_need${ele}`).classList.add("d-none");
+        document.querySelector(`.test${ele}`).innerHTML = "Confirm";
         index = ele;
     }else{
         UpdateElement()
@@ -117,9 +117,9 @@ function formPrepar(ele) {
 }
 
 function UpdateElement() {
-    allSites[index].name = document.querySelector(".edit").value;
-    document.querySelector(".edit").classList.replace("d-block", "d-none");
-    document.querySelector(".editor_need").classList.add("d-block");
-    document.querySelector(".btn-outline-warning").innerHTML = "Update";
+    allSites[index].name = document.querySelector(`.edit${index}`).value;
+    document.querySelector(`.edit${index}`).classList.replace("d-block", "d-none");
+    document.querySelector(`.editor_need${index}`).classList.add("d-block");
+    document.querySelector(`.test${index}`).innerHTML = "Update";
     diplay()
 }
